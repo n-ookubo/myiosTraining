@@ -15,6 +15,7 @@
 @implementation ViewController
 - (void)loadView
 {
+    // viewのロードとsubviewのロード、追加のみ
     [super loadView];
     
     self.mixiController = [[MixiSampleViewController alloc] initWithNibName:@"MixiSampleViewController" bundle:nil];

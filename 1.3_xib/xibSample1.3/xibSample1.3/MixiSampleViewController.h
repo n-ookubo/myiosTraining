@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MixiModalViewController.h"
 
-@interface MixiSampleViewController : UIViewController
+@interface MixiSampleViewController : UIViewController <MixiModalViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *grayView;
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
 @property (weak, nonatomic) IBOutlet UIView *blueView;

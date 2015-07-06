@@ -9,12 +9,17 @@
 #import "MixiSampleViewController.h"
 
 @interface MixiSampleViewController ()
-
+{
+    MixiModalViewController *modal;
+}
 @end
 
 @implementation MixiSampleViewController
 - (void)loadView{
     [super loadView];
+    
+    modal = [[MixiModalViewController alloc] init];
+    modal.delegate = self;
     
     [self.slider setValue:0.6];
     [self changeSlider:nil];
@@ -30,6 +35,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)setSliderValue:(float)value {
+    [self.slider setValue:value];
+    [self changeSlider:nil];
+}
 - (IBAction)changeSlider:(id)sender {
     float val = self.slider.value;
     [self.grayView setBackgroundColor:[UIColor colorWithRed:val green:val blue:val alpha:1.0f]];
@@ -41,6 +50,15 @@
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^ {
         self.blueView.backgroundColor = color;
     } completion:^(BOOL finished){}];
+}
+- (IBAction)touchButton:(id)sender {
+    [modal setSliderValue:self.slider.value];
+    //[self presentViewController:modal animated:YES completion:nil];
+    [self.view.window.rootViewController presentViewController:modal animated:YES completion:nil];
+}
+-(void)didPressCloseButton
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 /*
 #pragma mark - Navigation

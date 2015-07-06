@@ -14,6 +14,8 @@
 		69B557151B4A1F45008DA033 /* xibSample1_3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B557141B4A1F45008DA033 /* xibSample1_3Tests.m */; };
 		69B557211B4A2031008DA033 /* MixiSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B5571F1B4A2031008DA033 /* MixiSampleViewController.m */; };
 		69B557221B4A2031008DA033 /* MixiSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69B557201B4A2031008DA033 /* MixiSampleViewController.xib */; };
+		69B5575E1B4A3AB8008DA033 /* MixiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B5575C1B4A3AB8008DA033 /* MixiModalViewController.m */; };
+		69B5575F1B4A3AB8008DA033 /* MixiModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69B5575D1B4A3AB8008DA033 /* MixiModalViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,9 @@
 		69B5571E1B4A2031008DA033 /* MixiSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixiSampleViewController.h; sourceTree = "<group>"; };
 		69B5571F1B4A2031008DA033 /* MixiSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixiSampleViewController.m; sourceTree = "<group>"; };
 		69B557201B4A2031008DA033 /* MixiSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MixiSampleViewController.xib; sourceTree = "<group>"; };
+		69B5575B1B4A3AB8008DA033 /* MixiModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixiModalViewController.h; sourceTree = "<group>"; };
+		69B5575C1B4A3AB8008DA033 /* MixiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixiModalViewController.m; sourceTree = "<group>"; };
+		69B5575D1B4A3AB8008DA033 /* MixiModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MixiModalViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +96,9 @@
 				69B557201B4A2031008DA033 /* MixiSampleViewController.xib */,
 				69B557051B4A1F44008DA033 /* Images.xcassets */,
 				69B556F81B4A1F44008DA033 /* Supporting Files */,
+				69B5575B1B4A3AB8008DA033 /* MixiModalViewController.h */,
+				69B5575C1B4A3AB8008DA033 /* MixiModalViewController.m */,
+				69B5575D1B4A3AB8008DA033 /* MixiModalViewController.xib */,
 			);
 			path = xibSample1.3;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69B557061B4A1F44008DA033 /* Images.xcassets in Resources */,
+				69B5575F1B4A3AB8008DA033 /* MixiModalViewController.xib in Resources */,
 				69B557221B4A2031008DA033 /* MixiSampleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +233,7 @@
 				69B557211B4A2031008DA033 /* MixiSampleViewController.m in Sources */,
 				69B556FE1B4A1F44008DA033 /* AppDelegate.m in Sources */,
 				69B556FB1B4A1F44008DA033 /* main.m in Sources */,
+				69B5575E1B4A3AB8008DA033 /* MixiModalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +409,7 @@
 				69B5571A1B4A1F45008DA033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69B5571B1B4A1F45008DA033 /* Build configuration list for PBXNativeTarget "xibSample1.3Tests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +418,7 @@
 				69B5571D1B4A1F45008DA033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
