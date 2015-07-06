@@ -15,6 +15,7 @@
 		69B557401B4A35A0008DA033 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69B5573E1B4A35A0008DA033 /* LaunchScreen.xib */; };
 		69B5574C1B4A35A0008DA033 /* StoryBoardSample1_3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B5574B1B4A35A0008DA033 /* StoryBoardSample1_3Tests.m */; };
 		69B557571B4A35DD008DA033 /* MixiSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B557561B4A35DD008DA033 /* MixiSampleViewController.m */; };
+		69B557621B4A455A008DA033 /* MixiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B557611B4A455A008DA033 /* MixiModalViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		69B5574B1B4A35A0008DA033 /* StoryBoardSample1_3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoryBoardSample1_3Tests.m; sourceTree = "<group>"; };
 		69B557551B4A35DD008DA033 /* MixiSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixiSampleViewController.h; sourceTree = "<group>"; };
 		69B557561B4A35DD008DA033 /* MixiSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixiSampleViewController.m; sourceTree = "<group>"; };
+		69B557601B4A455A008DA033 /* MixiModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixiModalViewController.h; sourceTree = "<group>"; };
+		69B557611B4A455A008DA033 /* MixiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixiModalViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				69B557551B4A35DD008DA033 /* MixiSampleViewController.h */,
 				69B557561B4A35DD008DA033 /* MixiSampleViewController.m */,
 				69B5572F1B4A35A0008DA033 /* Supporting Files */,
+				69B557601B4A455A008DA033 /* MixiModalViewController.h */,
+				69B557611B4A455A008DA033 /* MixiModalViewController.m */,
 			);
 			path = StoryBoardSample1.3;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				69B557571B4A35DD008DA033 /* MixiSampleViewController.m in Sources */,
 				69B557351B4A35A0008DA033 /* AppDelegate.m in Sources */,
 				69B557321B4A35A0008DA033 /* main.m in Sources */,
+				69B557621B4A455A008DA033 /* MixiModalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +428,7 @@
 				69B557511B4A35A0008DA033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69B557521B4A35A0008DA033 /* Build configuration list for PBXNativeTarget "StoryBoardSample1.3Tests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +437,7 @@
 				69B557541B4A35A0008DA033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

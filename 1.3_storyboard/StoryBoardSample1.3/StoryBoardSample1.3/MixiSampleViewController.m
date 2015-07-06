@@ -27,7 +27,22 @@
 - (IBAction)touchButton:(id)sender {
     self.label.text = @"YES";
 }
+- (IBAction)touchSecondButton:(id)sender {
+    [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.view.backgroundColor = [UIColor redColor];
+    } completion:^(BOOL finished){
+        [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.view.backgroundColor = [UIColor whiteColor];
+        } completion:^(BOOL finished){
+            [self performSegueWithIdentifier:@"presentMyModalViewController" sender:self];
+        }];
+    }];
+    
+}
 
+- (IBAction)unwindToThisController:(UIStoryboardSegue *)segue {
+    // some code
+}
 /*
 #pragma mark - Navigation
 
