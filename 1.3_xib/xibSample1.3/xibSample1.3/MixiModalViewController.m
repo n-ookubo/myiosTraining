@@ -34,15 +34,9 @@
     self.colorView.backgroundColor = color;
 }
 - (IBAction)didTouchButton:(id)sender {
-    if ([_delegate respondsToSelector:@selector(setSliderValue:)]) {
-        [_delegate setSliderValue:self.slider.value];
-    }
-    [self dismissViewControllerAnimated:YES completion:nil];
-    /*
     if ([_delegate respondsToSelector:@selector(didPressCloseButton)]) {
         [_delegate didPressCloseButton];
     }
-     */
 }
 
 /*

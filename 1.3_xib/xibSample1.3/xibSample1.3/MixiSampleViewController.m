@@ -58,7 +58,9 @@
 }
 -(void)didPressCloseButton
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self setSliderValue:modal.slider.value];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [modal dismissViewControllerAnimated:YES completion:nil];
 }
 /*
 #pragma mark - Navigation

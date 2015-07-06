@@ -10,7 +10,6 @@
 
 @protocol MixiModalViewControllerDelegate <NSObject>
 -(void)didPressCloseButton;
--(void)setSliderValue:(float)value;
 @end
 
 @interface MixiModalViewController : UIViewController
