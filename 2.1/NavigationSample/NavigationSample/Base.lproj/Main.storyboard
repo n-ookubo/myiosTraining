@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Mixi View Controller-->
+        <scene sceneID="vh7-LV-sRv">
+            <objects>
+                <viewController storyboardIdentifier="MixiViewController" id="khZ-l3-OfV" customClass="MixiViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nVZ-1p-lYu"/>
+                        <viewControllerLayoutGuide type="bottom" id="LDf-B4-tDU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QUg-A8-f8Q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dY-Wh-7Vz">
+                                <rect key="frame" x="253" y="36" width="94" height="30"/>
+                                <state key="normal" title="push by code">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didButtonTap:" destination="khZ-l3-OfV" eventType="touchUpInside" id="qv8-ln-rJV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma5-Rw-r8g">
+                                <rect key="frame" x="274" y="82" width="53" height="30"/>
+                                <state key="normal" title="Show A">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="khZ-l3-OfV" kind="show" identifier="showSelfSegueA" id="9sk-Wz-H13"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvu-4J-jyj">
+                                <rect key="frame" x="273" y="128" width="54" height="30"/>
+                                <state key="normal" title="Show B">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="khZ-l3-OfV" kind="show" identifier="showSelfSegueB" id="lUH-2p-ZZo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nM-IW-KY1">
+                                <rect key="frame" x="204" y="174" width="192" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="192" id="KKV-WH-1dB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="2dY-Wh-7Vz" secondAttribute="centerX" id="3KR-uk-PjE"/>
+                            <constraint firstAttribute="centerX" secondItem="9nM-IW-KY1" secondAttribute="centerX" id="7wm-jn-4WW"/>
+                            <constraint firstItem="kvu-4J-jyj" firstAttribute="top" secondItem="ma5-Rw-r8g" secondAttribute="bottom" constant="16" id="L8V-Ha-ZSP"/>
+                            <constraint firstAttribute="centerX" secondItem="2dY-Wh-7Vz" secondAttribute="centerX" id="NV3-YZ-8t7"/>
+                            <constraint firstAttribute="centerX" secondItem="ma5-Rw-r8g" secondAttribute="centerX" id="USX-gs-JH5"/>
+                            <constraint firstItem="2dY-Wh-7Vz" firstAttribute="top" secondItem="nVZ-1p-lYu" secondAttribute="bottom" constant="16" id="Yjs-X7-UtS"/>
+                            <constraint firstAttribute="centerX" secondItem="kvu-4J-jyj" secondAttribute="centerX" id="aZs-1F-jve"/>
+                            <constraint firstItem="2dY-Wh-7Vz" firstAttribute="top" secondItem="QUg-A8-f8Q" secondAttribute="topMargin" constant="32" id="k3C-eF-uMr"/>
+                            <constraint firstItem="ma5-Rw-r8g" firstAttribute="top" secondItem="2dY-Wh-7Vz" secondAttribute="bottom" constant="16" id="nPK-5C-c3h"/>
+                            <constraint firstItem="9nM-IW-KY1" firstAttribute="top" secondItem="kvu-4J-jyj" secondAttribute="bottom" constant="16" id="u1I-lG-FXe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NV3-YZ-8t7"/>
+                                <exclude reference="k3C-eF-uMr"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="myLabel" destination="9nM-IW-KY1" id="7rl-Pp-HxN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yqO-sJ-nfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="627" y="1177"/>
+        </scene>
+    </scenes>
+</document>
