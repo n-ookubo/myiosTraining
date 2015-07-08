@@ -33,6 +33,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidLayoutSubviews
+{
+    self.currentView.view.frame = self.frameView.frame;
+}
+
 - (void)changeCurrentView:(UIViewController *)nextView
 {
     UIViewController *current = self.currentView;
