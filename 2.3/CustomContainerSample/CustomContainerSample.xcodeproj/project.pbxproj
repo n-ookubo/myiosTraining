@@ -14,6 +14,9 @@
 		690E14FC1B4D027000FAD071 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690E14FB1B4D027000FAD071 /* Images.xcassets */; };
 		690E14FF1B4D027000FAD071 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 690E14FD1B4D027000FAD071 /* LaunchScreen.xib */; };
 		690E150B1B4D027000FAD071 /* CustomContainerSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 690E150A1B4D027000FAD071 /* CustomContainerSampleTests.m */; };
+		690E15191B4D091900FAD071 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 690E15181B4D091900FAD071 /* FirstViewController.m */; };
+		690E151C1B4D092800FAD071 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 690E151B1B4D092800FAD071 /* SecondViewController.m */; };
+		690E151F1B4D093400FAD071 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 690E151E1B4D093400FAD071 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		690E15041B4D027000FAD071 /* CustomContainerSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomContainerSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		690E15091B4D027000FAD071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		690E150A1B4D027000FAD071 /* CustomContainerSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomContainerSampleTests.m; sourceTree = "<group>"; };
+		690E15171B4D091900FAD071 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		690E15181B4D091900FAD071 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		690E151A1B4D092800FAD071 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		690E151B1B4D092800FAD071 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		690E151D1B4D093400FAD071 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		690E151E1B4D093400FAD071 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +98,12 @@
 				690E14FB1B4D027000FAD071 /* Images.xcassets */,
 				690E14FD1B4D027000FAD071 /* LaunchScreen.xib */,
 				690E14EE1B4D027000FAD071 /* Supporting Files */,
+				690E15171B4D091900FAD071 /* FirstViewController.h */,
+				690E15181B4D091900FAD071 /* FirstViewController.m */,
+				690E151A1B4D092800FAD071 /* SecondViewController.h */,
+				690E151B1B4D092800FAD071 /* SecondViewController.m */,
+				690E151D1B4D093400FAD071 /* ThirdViewController.h */,
+				690E151E1B4D093400FAD071 /* ThirdViewController.m */,
 			);
 			path = CustomContainerSample;
 			sourceTree = "<group>";
@@ -219,9 +234,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690E151C1B4D092800FAD071 /* SecondViewController.m in Sources */,
 				690E14F71B4D027000FAD071 /* ViewController.m in Sources */,
+				690E151F1B4D093400FAD071 /* ThirdViewController.m in Sources */,
 				690E14F41B4D027000FAD071 /* AppDelegate.m in Sources */,
 				690E14F11B4D027000FAD071 /* main.m in Sources */,
+				690E15191B4D091900FAD071 /* FirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +434,7 @@
 				690E15101B4D027000FAD071 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		690E15111B4D027000FAD071 /* Build configuration list for PBXNativeTarget "CustomContainerSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +443,7 @@
 				690E15131B4D027000FAD071 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

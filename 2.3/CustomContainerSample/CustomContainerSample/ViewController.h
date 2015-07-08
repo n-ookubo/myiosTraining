@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (strong, nonatomic) UIViewController *firstView;
+@property (strong, nonatomic) UIViewController *secondView;
+@property (strong, nonatomic) UIViewController *thirdView;
 
+@property (weak, nonatomic) UIViewController *currentView;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
 @end
 

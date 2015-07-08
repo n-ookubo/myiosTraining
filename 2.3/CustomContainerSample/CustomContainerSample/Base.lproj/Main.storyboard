@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,132 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iTB-DU-1CG">
+                                <rect key="frame" x="48" y="556" width="504" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title="Third"/>
+                                </segments>
+                                <connections>
+                                    <action selector="DidSegmentChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="BLn-pN-OLg"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xey-hu-FCX">
+                                <rect key="frame" x="0.0" y="20" width="600" height="520"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="iTB-DU-1CG" secondAttribute="centerX" id="0OJ-Ga-ogk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iTB-DU-1CG" secondAttribute="trailing" constant="32" id="2bN-Gs-iWl"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="iTB-DU-1CG" secondAttribute="bottom" constant="16" id="5Et-uc-CvT"/>
+                            <constraint firstAttribute="trailing" secondItem="Xey-hu-FCX" secondAttribute="trailing" id="JFl-Te-07h"/>
+                            <constraint firstItem="iTB-DU-1CG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="32" id="KFc-Ep-cB5"/>
+                            <constraint firstItem="iTB-DU-1CG" firstAttribute="top" secondItem="Xey-hu-FCX" secondAttribute="bottom" constant="16" id="NK1-1O-Ogi"/>
+                            <constraint firstItem="Xey-hu-FCX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="top" id="WJV-uu-Gei"/>
+                            <constraint firstItem="Xey-hu-FCX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vL9-9c-Ylk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="frameView" destination="Xey-hu-FCX" id="wM1-rG-Dat"/>
+                        <outlet property="segment" destination="iTB-DU-1CG" id="DmY-9t-gyb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--First View Controller-->
+        <scene sceneID="S3s-Ng-qVR">
+            <objects>
+                <viewController storyboardIdentifier="firstView" id="JYT-jz-qvv" customClass="FirstViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nAh-g7-39X"/>
+                        <viewControllerLayoutGuide type="bottom" id="VP0-a8-Ca8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cP2-Ue-D6n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfs-Jl-yRk">
+                                <rect key="frame" x="255" y="271" width="91" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="lfs-Jl-yRk" secondAttribute="centerX" id="uRz-xK-5pt"/>
+                            <constraint firstAttribute="centerY" secondItem="lfs-Jl-yRk" secondAttribute="centerY" id="zfd-7o-jxZ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eEU-As-hBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="167" y="1046"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="2Ti-Bc-7bS">
+            <objects>
+                <viewController storyboardIdentifier="secondView" id="fO3-Sd-dE6" customClass="SecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4co-rv-zji"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mqt-Xy-igS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Z3-bK-QEe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee4-r3-bFf">
+                                <rect key="frame" x="219" y="271" width="162" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="ee4-r3-bFf" secondAttribute="centerY" id="6Wa-5D-rVo"/>
+                            <constraint firstAttribute="centerX" secondItem="ee4-r3-bFf" secondAttribute="centerX" id="fyG-Dj-IH8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BGj-Hg-b03" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="707" y="1053"/>
+        </scene>
+        <!--Third View Controller-->
+        <scene sceneID="UvU-jJ-cen">
+            <objects>
+                <viewController storyboardIdentifier="thirdView" id="KRg-LH-L94" customClass="ThirdViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Nn-bt-Pkt"/>
+                        <viewControllerLayoutGuide type="bottom" id="3gs-g2-ibq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gVT-NZ-jqs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Third" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQy-Ga-JjC">
+                                <rect key="frame" x="247" y="271" width="106" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="WQy-Ga-JjC" secondAttribute="centerX" id="hTf-Do-Yw8"/>
+                            <constraint firstAttribute="centerY" secondItem="WQy-Ga-JjC" secondAttribute="centerY" id="oV6-EV-eh5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VCd-6z-M63" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1307" y="897"/>
         </scene>
     </scenes>
 </document>
