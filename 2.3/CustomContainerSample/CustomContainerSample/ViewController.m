@@ -12,6 +12,9 @@
 #import "ThirdViewController.h"
 
 @interface ViewController ()
+{
+    NSInteger currentViewIndex;
+}
 @property (weak, nonatomic) IBOutlet UIView *frameView;
 
 @end
@@ -25,7 +28,8 @@
     self.secondView = [self.storyboard instantiateViewControllerWithIdentifier:@"secondView"];
     self.thirdView = [self.storyboard instantiateViewControllerWithIdentifier:@"thirdView"];
     
-    [self changeCurrentView:self.firstView];
+    currentViewIndex = -1;
+    [self changeCurrentView:0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,51 +39,75 @@
 
 - (void)viewDidLayoutSubviews
 {
-    self.currentView.view.frame = self.frameView.frame;
+    [self getViewController:currentViewIndex].view.frame = self.frameView.frame;
 }
 
-- (void)changeCurrentView:(UIViewController *)nextView
+- (void)changeCurrentView:(NSInteger)index
 {
-    UIViewController *current = self.currentView;
+    UIViewController *current = [self getViewController:currentViewIndex];
+    UIViewController *nextView = [self getViewController:index];
     
     if (!current) {
         [self addChildViewController:nextView];
         nextView.view.frame = self.frameView.frame;
         [self.view addSubview:nextView.view];
         [nextView didMoveToParentViewController:self];
-        self.currentView = nextView;
+        currentViewIndex = index;
         return;
     }
     
-    [current willMoveToParentViewController:nil];
-    [self addChildViewController:nextView];
+    if (currentViewIndex != index) {
+        [current willMoveToParentViewController:nil];
+        [self addChildViewController:nextView];
+    }
     
-    CGFloat nextWidth = nextView.view.bounds.size.width;
-    CGFloat nextHeight = nextView.view.bounds.size.height;
-    nextView.view.frame = CGRectMake(0, -nextHeight, nextWidth, nextHeight);
+    CGFloat nextWidth = self.frameView.bounds.size.width;
+    CGFloat nextHeight = self.frameView.bounds.size.height;
+    if (currentViewIndex > index) {
+        nextView.view.frame = CGRectMake(-nextWidth, 0, nextWidth, nextHeight);
+    } else if (currentViewIndex < index) {
+        nextView.view.frame = CGRectMake(nextWidth, 0, nextWidth, nextHeight);
+    }
     
     [self transitionFromViewController:current toViewController:nextView duration:0.4f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        if (currentViewIndex > index) {
+            current.view.frame = CGRectMake(nextWidth, 0, nextWidth, nextHeight);
+        } else if (currentViewIndex < index) {
+            current.view.frame = CGRectMake(-nextWidth, 0, nextWidth, nextHeight);
+        }
         nextView.view.frame = self.frameView.frame;
     }completion:^(BOOL finished){
-        [current removeFromParentViewController];
-        [nextView didMoveToParentViewController:self];
+        if (currentViewIndex != index) {
+            [current removeFromParentViewController];
+            [nextView didMoveToParentViewController:self];
+        }
     }];
     
-    self.currentView = nextView;
+    currentViewIndex = index;
+}
+
+- (UIViewController *)getViewController:(NSInteger)index
+{
+    if (index < 0 || index > 2) {
+        return nil;
+    }
+    NSArray *array = @[_firstView, _secondView, _thirdView];
+    return [array objectAtIndex:index];
 }
 
 - (IBAction)DidSegmentChange:(id)sender {
-    switch(self.segment.selectedSegmentIndex){
-        case 0:
-            [self changeCurrentView:self.firstView];
-            break;
-        case 1:
-            [self changeCurrentView:self.secondView];
-            break;
-        case 2:
-            [self changeCurrentView:self.thirdView];
-            break;
+    [self changeCurrentView:self.segment.selectedSegmentIndex];
+}
+- (IBAction)viewDidSwipeLeft:(UISwipeGestureRecognizer *)sender {
+    NSInteger index = self.segment.selectedSegmentIndex;
+    if (index < 2){
+        [self changeCurrentView:(self.segment.selectedSegmentIndex = ++index)];
     }
 }
-
+- (IBAction)viewDidSwipeRIght:(UISwipeGestureRecognizer *)sender {
+    NSInteger index = self.segment.selectedSegmentIndex;
+    if (index > 0){
+        [self changeCurrentView:(self.segment.selectedSegmentIndex = --index)];
+    }
+}
 @end

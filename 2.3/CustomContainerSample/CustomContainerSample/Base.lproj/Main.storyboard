@@ -34,6 +34,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="iTB-DU-1CG" secondAttribute="centerX" id="0OJ-Ga-ogk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iTB-DU-1CG" secondAttribute="trailing" constant="32" id="2bN-Gs-iWl"/>
@@ -44,6 +45,10 @@
                             <constraint firstItem="Xey-hu-FCX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="top" id="WJV-uu-Gei"/>
                             <constraint firstItem="Xey-hu-FCX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vL9-9c-Ylk"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="RhT-3X-wDx" appends="YES" id="Ris-oX-gJ9"/>
+                            <outletCollection property="gestureRecognizers" destination="3UM-ox-8dA" appends="YES" id="R5v-9x-NQt"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="frameView" destination="Xey-hu-FCX" id="wM1-rG-Dat"/>
@@ -51,6 +56,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="RhT-3X-wDx">
+                    <connections>
+                        <action selector="viewDidSwipeRIght:" destination="vXZ-lx-hvc" id="waJ-E5-oxU"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="3UM-ox-8dA">
+                    <connections>
+                        <action selector="viewDidSwipeLeft:" destination="vXZ-lx-hvc" id="Cr4-Ht-Sm0"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
         </scene>
         <!--First View Controller-->
