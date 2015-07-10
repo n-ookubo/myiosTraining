@@ -56,7 +56,9 @@ static NSArray *kBgColors;
     MixiViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MixiViewController"];
     controller.depth = self.depth +1;
     controller.message = message;
-    [self.navigationController pushViewController:controller animated:YES];
+    [UIView transitionWithView:self.navigationController.view duration:0.5f options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        [self.navigationController pushViewController:controller animated:NO];
+    }completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
