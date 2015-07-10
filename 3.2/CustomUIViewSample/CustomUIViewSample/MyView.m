@@ -9,29 +9,6 @@
 #import "MyView.h"
 
 @implementation MyView
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self initializeView];
-    }
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self initializeView];
-    }
-    return self;
-}
-
-- (void)initializeView
-{
-    //self.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
-}
-
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
@@ -41,7 +18,11 @@
     CGFloat h = self.bounds.size.height;
     CGColorRef fillColor = CGColorRetain([[UIColor whiteColor] CGColor]);
     CGContextSetFillColorWithColor(context, fillColor);
-    CGContextFillEllipseInRect(context, CGRectMake(0, 0, w, h));
+    if (w > 2 && h > 2){
+        CGContextFillEllipseInRect(context, CGRectMake(1, 1, w - 2, h - 2));
+    } else {
+        CGContextFillEllipseInRect(context, CGRectMake(0, 0, w, h));
+    }
     CGColorRelease(fillColor);
 }
 
