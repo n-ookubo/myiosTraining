@@ -14,6 +14,9 @@
 		69E03D7C1B4FA8C500BB6532 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69E03D7B1B4FA8C500BB6532 /* Images.xcassets */; };
 		69E03D7F1B4FA8C500BB6532 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E03D7D1B4FA8C500BB6532 /* LaunchScreen.xib */; };
 		69E03D8B1B4FA8C500BB6532 /* CustomUIViewSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E03D8A1B4FA8C500BB6532 /* CustomUIViewSampleTests.m */; };
+		69E03D961B4FA8E500BB6532 /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E03D951B4FA8E500BB6532 /* MyView.m */; };
+		69E03D991B4FAC8C00BB6532 /* MyXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E03D981B4FAC8C00BB6532 /* MyXibView.m */; };
+		69E03D9B1B4FACA200BB6532 /* MyXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E03D9A1B4FACA200BB6532 /* MyXibView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,11 @@
 		69E03D841B4FA8C500BB6532 /* CustomUIViewSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomUIViewSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E03D891B4FA8C500BB6532 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69E03D8A1B4FA8C500BB6532 /* CustomUIViewSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomUIViewSampleTests.m; sourceTree = "<group>"; };
+		69E03D941B4FA8E500BB6532 /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
+		69E03D951B4FA8E500BB6532 /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
+		69E03D971B4FAC8C00BB6532 /* MyXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyXibView.h; sourceTree = "<group>"; };
+		69E03D981B4FAC8C00BB6532 /* MyXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyXibView.m; sourceTree = "<group>"; };
+		69E03D9A1B4FACA200BB6532 /* MyXibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyXibView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +97,11 @@
 				69E03D7B1B4FA8C500BB6532 /* Images.xcassets */,
 				69E03D7D1B4FA8C500BB6532 /* LaunchScreen.xib */,
 				69E03D6E1B4FA8C500BB6532 /* Supporting Files */,
+				69E03D941B4FA8E500BB6532 /* MyView.h */,
+				69E03D951B4FA8E500BB6532 /* MyView.m */,
+				69E03D971B4FAC8C00BB6532 /* MyXibView.h */,
+				69E03D981B4FAC8C00BB6532 /* MyXibView.m */,
+				69E03D9A1B4FACA200BB6532 /* MyXibView.xib */,
 			);
 			path = CustomUIViewSample;
 			sourceTree = "<group>";
@@ -201,6 +214,7 @@
 			files = (
 				69E03D7A1B4FA8C500BB6532 /* Main.storyboard in Resources */,
 				69E03D7F1B4FA8C500BB6532 /* LaunchScreen.xib in Resources */,
+				69E03D9B1B4FACA200BB6532 /* MyXibView.xib in Resources */,
 				69E03D7C1B4FA8C500BB6532 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +233,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E03D991B4FAC8C00BB6532 /* MyXibView.m in Sources */,
+				69E03D961B4FA8E500BB6532 /* MyView.m in Sources */,
 				69E03D771B4FA8C500BB6532 /* ViewController.m in Sources */,
 				69E03D741B4FA8C500BB6532 /* AppDelegate.m in Sources */,
 				69E03D711B4FA8C500BB6532 /* main.m in Sources */,
