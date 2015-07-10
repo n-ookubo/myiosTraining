@@ -14,6 +14,7 @@
 		69E03D481B4F9FB800BB6532 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69E03D471B4F9FB800BB6532 /* Images.xcassets */; };
 		69E03D4B1B4F9FB800BB6532 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E03D491B4F9FB800BB6532 /* LaunchScreen.xib */; };
 		69E03D571B4F9FB800BB6532 /* UIViewSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E03D561B4F9FB800BB6532 /* UIViewSampleTests.m */; };
+		69E03D611B4FA03900BB6532 /* ojisan.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E03D601B4FA03900BB6532 /* ojisan.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		69E03D501B4F9FB800BB6532 /* UIViewSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIViewSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E03D551B4F9FB800BB6532 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69E03D561B4F9FB800BB6532 /* UIViewSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewSampleTests.m; sourceTree = "<group>"; };
+		69E03D601B4FA03900BB6532 /* ojisan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ojisan.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		69E03D391B4F9FB700BB6532 /* UIViewSample */ = {
 			isa = PBXGroup;
 			children = (
+				69E03D601B4FA03900BB6532 /* ojisan.png */,
 				69E03D3E1B4F9FB700BB6532 /* AppDelegate.h */,
 				69E03D3F1B4F9FB700BB6532 /* AppDelegate.m */,
 				69E03D411B4F9FB800BB6532 /* ViewController.h */,
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69E03D461B4F9FB800BB6532 /* Main.storyboard in Resources */,
+				69E03D611B4FA03900BB6532 /* ojisan.png in Resources */,
 				69E03D4B1B4F9FB800BB6532 /* LaunchScreen.xib in Resources */,
 				69E03D481B4F9FB800BB6532 /* Images.xcassets in Resources */,
 			);
