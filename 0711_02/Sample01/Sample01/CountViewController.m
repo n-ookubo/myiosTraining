@@ -15,7 +15,6 @@
 @end
 
 @implementation CountViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -59,18 +58,23 @@
     [_myLabel setText:[NSString stringWithFormat:@"%d", count]];
 }
 
+- (BOOL)isModZero:(int)d
+{
+    return !(_countValue % d);
+}
+
 - (IBAction)didButtonTouchUp:(id)sender {
     [self setLabel:++_countValue];
     
-    if (!(_countValue % 3)) {
+    if ([self isModZero:3]) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"!?" message:[NSString stringWithFormat:@"%d は３の倍数らしい・・・", _countValue] preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-            if (!(_countValue % 10)) {
+            if ([self isModZero:10]) {
                 [self showModal];
             }
         }]];
         [self.view.window.rootViewController presentViewController:alert animated:YES completion:nil];
-    } else if (!(_countValue % 10)) {
+    } else if ([self isModZero:10]) {
         [self showModal];
     }
 }
