@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="27I-aI-TQe">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -26,13 +27,22 @@
                                     <action selector="didStartButtonTouchUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="p3G-bd-1jn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjc-LI-Lym">
-                                <rect key="frame" x="269" y="324" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjc-LI-Lym">
+                                <rect key="frame" x="269" y="323" width="62" height="30"/>
                                 <state key="normal" title="Continue">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="didContinueButtonTouchUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="llN-Z5-lA7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xs3-QK-NzG">
+                                <rect key="frame" x="273" y="361" width="55" height="30"/>
+                                <state key="normal" title="10 Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="did10StartButtonTouchUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eLo-E1-2Y0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -41,7 +51,9 @@
                             <constraint firstAttribute="centerX" secondItem="zjc-LI-Lym" secondAttribute="centerX" id="6Zx-2I-KNa"/>
                             <constraint firstAttribute="centerX" secondItem="e3i-vR-Q3Y" secondAttribute="centerX" id="8Ds-8d-Aka"/>
                             <constraint firstItem="zjc-LI-Lym" firstAttribute="top" secondItem="e3i-vR-Q3Y" secondAttribute="bottom" constant="8" id="EaQ-Uj-QMz"/>
+                            <constraint firstItem="Xs3-QK-NzG" firstAttribute="top" secondItem="zjc-LI-Lym" secondAttribute="bottom" constant="8" id="g3P-j4-nMr"/>
                             <constraint firstAttribute="centerY" secondItem="e3i-vR-Q3Y" secondAttribute="centerY" id="oRi-cw-wUt"/>
+                            <constraint firstAttribute="centerX" secondItem="Xs3-QK-NzG" secondAttribute="centerX" id="vjW-lW-JZm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lmn-TE-Cog"/>
@@ -77,14 +89,25 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJI-EB-gla">
+                                <rect key="frame" x="283" y="331" width="35" height="30"/>
+                                <state key="normal" title="more">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didMoreButtonTouchUp:" destination="4FG-I9-STe" eventType="touchUpInside" id="Gb7-P6-l1j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zJI-EB-gla" firstAttribute="top" secondItem="dwz-nN-Pid" secondAttribute="bottom" constant="16" id="DpZ-HA-0Yw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="l29-Sd-4zj" secondAttribute="trailing" constant="8" id="IEi-P2-KT3"/>
                             <constraint firstAttribute="centerX" secondItem="dwz-nN-Pid" secondAttribute="centerX" id="KWh-ZM-9Lg"/>
                             <constraint firstAttribute="centerX" secondItem="l29-Sd-4zj" secondAttribute="centerX" id="Llz-Zm-OoJ"/>
                             <constraint firstItem="dwz-nN-Pid" firstAttribute="top" secondItem="l29-Sd-4zj" secondAttribute="bottom" constant="32" id="VA6-MI-txC"/>
                             <constraint firstAttribute="centerY" secondItem="dwz-nN-Pid" secondAttribute="centerY" id="dGo-Y1-WKq"/>
+                            <constraint firstAttribute="centerX" secondItem="zJI-EB-gla" secondAttribute="centerX" id="fJg-PA-qFp"/>
                             <constraint firstItem="l29-Sd-4zj" firstAttribute="leading" secondItem="aJh-4l-Rg9" secondAttribute="leadingMargin" constant="8" id="xpi-cA-jOh"/>
                         </constraints>
                     </view>
@@ -94,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJe-x2-dLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="529" y="1693"/>
+            <point key="canvasLocation" x="151" y="1803"/>
         </scene>
         <!--Count View Controller-->
         <scene sceneID="5pM-UF-zE2">
@@ -140,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQH-ES-gDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="836" y="1637"/>
+            <point key="canvasLocation" x="784" y="1725"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3UE-6P-9ID">
