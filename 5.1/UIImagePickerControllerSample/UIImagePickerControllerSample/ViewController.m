@@ -94,7 +94,7 @@
 {
     UIImagePickerController *controller = [[UIImagePickerController alloc] init];
     controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    controller.allowsEditing = YES;
+    //controller.allowsEditing = YES;
     
     controller.delegate = self;
     [self.view.window.rootViewController presentViewController:controller animated:YES completion:nil];
@@ -103,6 +103,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    
     
     UIImage *img = info[UIImagePickerControllerOriginalImage];
     CGRect imgRect = CGRectMake(0, 0, img.size.width, img.size.height);
