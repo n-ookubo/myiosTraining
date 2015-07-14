@@ -14,6 +14,7 @@
 		693EDEFE1B51167500389F80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 693EDEFD1B51167500389F80 /* Images.xcassets */; };
 		693EDF011B51167500389F80 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693EDEFF1B51167500389F80 /* LaunchScreen.xib */; };
 		693EDF0D1B51167500389F80 /* TableViewSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 693EDF0C1B51167500389F80 /* TableViewSampleTests.m */; };
+		699AB0EF1B54BECB0076E803 /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 699AB0EE1B54BECB0076E803 /* RefreshViewController.m */; };
 		699D88F41B53678B00A3D0E4 /* fukidashi_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 699D88F31B53678B00A3D0E4 /* fukidashi_left.png */; };
 		699D88F81B53679A00A3D0E4 /* fukidashi_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 699D88F51B53679A00A3D0E4 /* fukidashi_right.png */; };
 		699D88F91B53679A00A3D0E4 /* icon_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 699D88F61B53679A00A3D0E4 /* icon_left.png */; };
@@ -51,6 +52,8 @@
 		693EDF061B51167500389F80 /* TableViewSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		693EDF0B1B51167500389F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		693EDF0C1B51167500389F80 /* TableViewSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewSampleTests.m; sourceTree = "<group>"; };
+		699AB0ED1B54BECB0076E803 /* RefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshViewController.h; sourceTree = "<group>"; };
+		699AB0EE1B54BECB0076E803 /* RefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshViewController.m; sourceTree = "<group>"; };
 		699D88F31B53678B00A3D0E4 /* fukidashi_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fukidashi_left.png; sourceTree = "<group>"; };
 		699D88F51B53679A00A3D0E4 /* fukidashi_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fukidashi_right.png; sourceTree = "<group>"; };
 		699D88F61B53679A00A3D0E4 /* icon_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_left.png; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				699D89071B5375B300A3D0E4 /* MyTableViewCell2.xib */,
 				699D89091B53794B00A3D0E4 /* MyTableViewController.h */,
 				699D890A1B53794B00A3D0E4 /* MyTableViewController.m */,
+				699AB0ED1B54BECB0076E803 /* RefreshViewController.h */,
+				699AB0EE1B54BECB0076E803 /* RefreshViewController.m */,
 			);
 			path = TableViewSample;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				699D88FE1B5367E700A3D0E4 /* MyTableViewCell.m in Sources */,
 				693EDEF61B51167500389F80 /* AppDelegate.m in Sources */,
 				699D890B1B53794B00A3D0E4 /* MyTableViewController.m in Sources */,
+				699AB0EF1B54BECB0076E803 /* RefreshViewController.m in Sources */,
 				699D89061B53704C00A3D0E4 /* CustomCellViewController.m in Sources */,
 				693EDEF31B51167500389F80 /* main.m in Sources */,
 			);

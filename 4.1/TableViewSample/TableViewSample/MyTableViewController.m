@@ -7,9 +7,12 @@
 //
 
 #import "MyTableViewController.h"
+#import "RefreshViewController.h"
 
 @interface MyTableViewController ()
-
+{
+    int rowCount;
+}
 @end
 
 @implementation MyTableViewController
@@ -18,12 +21,15 @@
     [super viewDidLoad];
     
     self.title = @"引っ張って更新";
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(showNextView)];
+    self.navigationItem.rightBarButtonItem = item;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    rowCount = 10;
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(needsRefresh:) forControlEvents:UIControlEventValueChanged];
@@ -35,6 +41,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showNextView
+{
+    RefreshViewController *controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RefreshViewController"];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -44,7 +56,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+    return rowCount;
 }
 
 
@@ -55,7 +67,9 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"foo bar %ld", indexPath.row];
+    if (indexPath.section == 0) {
+        cell.textLabel.text = [NSString stringWithFormat:@"foo bar %ld", rowCount - indexPath.row];
+    }
     
     return cell;
 }
@@ -66,7 +80,21 @@
 }
 
 - (void)didRefreshFinish
-{
+{    int readCount = 10;
+    rowCount += readCount;
+    [self.tableView reloadData];
+    /*
+    [self.tableView beginUpdates];
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:readCount];
+    for (int i = 0; i < readCount; i++) {
+        array[i] = [NSIndexPath indexPathForRow:i inSection:0];
+    }
+    [self.tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
+    */
+    
+    NSIndexPath *scrollIndex = [NSIndexPath indexPathForRow:readCount inSection:0];
+    [self.tableView scrollToRowAtIndexPath:scrollIndex atScrollPosition:UITableViewScrollPositionTop animated:NO];
     [self.refreshControl endRefreshing];
 }
 

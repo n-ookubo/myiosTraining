@@ -33,9 +33,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-CC-FLu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-CC-FLu">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -62,6 +62,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="899" y="521"/>
+        </scene>
+        <!--Refresh View Controller-->
+        <scene sceneID="F4E-At-h7J">
+            <objects>
+                <viewController storyboardIdentifier="RefreshViewController" id="qEV-8F-ee6" customClass="RefreshViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ReR-iC-MGo"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Fo-vL-tIc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3z0-5P-7Xu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="h4h-hi-gNi">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4Fo-vL-tIc" firstAttribute="top" secondItem="h4h-hi-gNi" secondAttribute="bottom" id="3t0-UU-ksc"/>
+                            <constraint firstItem="h4h-hi-gNi" firstAttribute="leading" secondItem="3z0-5P-7Xu" secondAttribute="leading" id="TnC-Oy-W9u"/>
+                            <constraint firstAttribute="trailing" secondItem="h4h-hi-gNi" secondAttribute="trailing" id="YNQ-Dw-KTI"/>
+                            <constraint firstItem="h4h-hi-gNi" firstAttribute="top" secondItem="3z0-5P-7Xu" secondAttribute="topMargin" id="qRo-K0-1As"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="h4h-hi-gNi" id="ibb-Oq-LlE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iN3-qd-se4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1430" y="-81"/>
         </scene>
         <!--Custom Cell View Controller-->
         <scene sceneID="wZo-D5-e0t">
