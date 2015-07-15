@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		696E485C1B55E67C00F1CE50 /* AssetDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E485B1B55E67C00F1CE50 /* AssetDetailViewController.m */; };
 		699AB0FF1B54CECC0076E803 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 699AB0FE1B54CECC0076E803 /* main.m */; };
 		699AB1021B54CECC0076E803 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 699AB1011B54CECC0076E803 /* AppDelegate.m */; };
 		699AB1051B54CECC0076E803 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 699AB1041B54CECC0076E803 /* ViewController.m */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		696E485A1B55E67C00F1CE50 /* AssetDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetDetailViewController.h; sourceTree = "<group>"; };
+		696E485B1B55E67C00F1CE50 /* AssetDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetDetailViewController.m; sourceTree = "<group>"; };
 		699AB0F91B54CECC0076E803 /* AssetsLibrarySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetsLibrarySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		699AB0FD1B54CECC0076E803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		699AB0FE1B54CECC0076E803 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				699AB0FC1B54CECC0076E803 /* Supporting Files */,
 				699AB1241B54D6620076E803 /* AssetViewController.h */,
 				699AB1251B54D6620076E803 /* AssetViewController.m */,
+				696E485A1B55E67C00F1CE50 /* AssetDetailViewController.h */,
+				696E485B1B55E67C00F1CE50 /* AssetDetailViewController.m */,
 			);
 			path = AssetsLibrarySample;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				699AB1051B54CECC0076E803 /* ViewController.m in Sources */,
 				699AB1021B54CECC0076E803 /* AppDelegate.m in Sources */,
 				699AB0FF1B54CECC0076E803 /* main.m in Sources */,
+				696E485C1B55E67C00F1CE50 /* AssetDetailViewController.m in Sources */,
 				699AB1261B54D6620076E803 /* AssetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +432,7 @@
 				699AB11E1B54CECD0076E803 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		699AB11F1B54CECD0076E803 /* Build configuration list for PBXNativeTarget "AssetsLibrarySampleTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +441,7 @@
 				699AB1211B54CECD0076E803 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

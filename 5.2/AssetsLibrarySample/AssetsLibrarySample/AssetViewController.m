@@ -7,6 +7,7 @@
 //
 
 #import "AssetViewController.h"
+#import "AssetDetailViewController.h"
 
 @interface AssetViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -63,8 +64,18 @@
     ALAsset *asset = [_assetArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@", [asset valueForProperty:ALAssetPropertyDate]];
     cell.imageView.image = [UIImage imageWithCGImage:[asset thumbnail]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AssetDetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AssetDetail"];
+    controller.asset = [_assetArray objectAtIndex:indexPath.row];
+    // 次画面の戻るボタンの設定
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
+    self.navigationItem.backBarButtonItem = back;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
