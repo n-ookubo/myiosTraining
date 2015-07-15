@@ -8,6 +8,7 @@
 
 #import "AssetViewController.h"
 #import "AssetDetailViewController.h"
+#import "AssetRepresentationViewController.h"
 
 @interface AssetViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -20,6 +21,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = [NSString stringWithFormat:@"%@ (%ld)", [self.assetGroup valueForProperty:ALAssetsGroupPropertyName], [self.assetGroup numberOfAssets]];
+    
+    UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didBeginLongPress:)];
+    [_tableView addGestureRecognizer:recognizer];
     
     _assetArray = [NSMutableArray array];
     [_assetGroup enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
@@ -70,12 +74,32 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AssetDetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AssetDetail"];
-    controller.asset = [_assetArray objectAtIndex:indexPath.row];
+    AssetRepresentationViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RepresentationView"];
+    controller.image = [UIImage imageWithCGImage:[[[_assetArray objectAtIndex:indexPath.row] defaultRepresentation] fullScreenImage]];
     // 次画面の戻るボタンの設定
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
     self.navigationItem.backBarButtonItem = back;
+    
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+-(void)didBeginLongPress:(UILongPressGestureRecognizer *)recognizer
+{
+    if (recognizer.state != UIGestureRecognizerStateBegan) {
+        return;
+    }
+    
+    CGPoint p = [recognizer locationInView:_tableView];
+    NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:p];
+    
+    if (indexPath) {
+        AssetDetailViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AssetDetail"];
+        controller.asset = [_assetArray objectAtIndex:indexPath.row];
+        // 次画面の戻るボタンの設定
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
+        self.navigationItem.backBarButtonItem = back;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 @end

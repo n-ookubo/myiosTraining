@@ -7,6 +7,7 @@
 //
 
 #import "AssetDetailViewController.h"
+#import "AssetRepresentationViewController.h"
 
 @interface AssetDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -18,7 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"asset details";
+    self.title = @"asset properties";
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(playAsset)];
+    self.navigationItem.rightBarButtonItem = item;
     
     NSArray *keys = @[ALAssetPropertyType, ALAssetPropertyLocation, ALAssetPropertyDuration, ALAssetPropertyOrientation, ALAssetPropertyDate, ALAssetPropertyRepresentations, ALAssetPropertyURLs, ALAssetPropertyAssetURL];
     
@@ -30,7 +33,6 @@
         }
     }
     _dictionary = [NSDictionary dictionaryWithDictionary:dictionary];
-    [self setAsset:nil];
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -86,5 +88,16 @@
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 2;
+}
+
+- (void)playAsset
+{
+    AssetRepresentationViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RepresentationView"];
+    controller.image = [UIImage imageWithCGImage:[[_asset defaultRepresentation] fullScreenImage]];
+    // 次画面の戻るボタンの設定
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
+    self.navigationItem.backBarButtonItem = back;
+
+    [self.navigationController pushViewController:controller animated:YES];
 }
 @end

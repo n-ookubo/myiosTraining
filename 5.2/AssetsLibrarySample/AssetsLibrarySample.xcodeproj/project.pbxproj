@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		696E485C1B55E67C00F1CE50 /* AssetDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E485B1B55E67C00F1CE50 /* AssetDetailViewController.m */; };
+		696E485F1B55FE6F00F1CE50 /* AssetRepresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E485E1B55FE6F00F1CE50 /* AssetRepresentationViewController.m */; };
 		699AB0FF1B54CECC0076E803 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 699AB0FE1B54CECC0076E803 /* main.m */; };
 		699AB1021B54CECC0076E803 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 699AB1011B54CECC0076E803 /* AppDelegate.m */; };
 		699AB1051B54CECC0076E803 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 699AB1041B54CECC0076E803 /* ViewController.m */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		696E485A1B55E67C00F1CE50 /* AssetDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetDetailViewController.h; sourceTree = "<group>"; };
 		696E485B1B55E67C00F1CE50 /* AssetDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetDetailViewController.m; sourceTree = "<group>"; };
+		696E485D1B55FE6F00F1CE50 /* AssetRepresentationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetRepresentationViewController.h; sourceTree = "<group>"; };
+		696E485E1B55FE6F00F1CE50 /* AssetRepresentationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetRepresentationViewController.m; sourceTree = "<group>"; };
 		699AB0F91B54CECC0076E803 /* AssetsLibrarySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetsLibrarySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		699AB0FD1B54CECC0076E803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		699AB0FE1B54CECC0076E803 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 				699AB1251B54D6620076E803 /* AssetViewController.m */,
 				696E485A1B55E67C00F1CE50 /* AssetDetailViewController.h */,
 				696E485B1B55E67C00F1CE50 /* AssetDetailViewController.m */,
+				696E485D1B55FE6F00F1CE50 /* AssetRepresentationViewController.h */,
+				696E485E1B55FE6F00F1CE50 /* AssetRepresentationViewController.m */,
 			);
 			path = AssetsLibrarySample;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 				699AB1021B54CECC0076E803 /* AppDelegate.m in Sources */,
 				699AB0FF1B54CECC0076E803 /* main.m in Sources */,
 				696E485C1B55E67C00F1CE50 /* AssetDetailViewController.m in Sources */,
+				696E485F1B55FE6F00F1CE50 /* AssetRepresentationViewController.m in Sources */,
 				699AB1261B54D6620076E803 /* AssetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

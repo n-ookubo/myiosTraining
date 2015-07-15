@@ -103,7 +103,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYh-Nv-LH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="991" y="1005"/>
+            <point key="canvasLocation" x="1144" y="1134"/>
+        </scene>
+        <!--Asset Representation View Controller-->
+        <scene sceneID="dJ8-Yp-o4o">
+            <objects>
+                <viewController storyboardIdentifier="RepresentationView" id="rEu-2l-OTT" customClass="AssetRepresentationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9kA-6d-NKB"/>
+                        <viewControllerLayoutGuide type="bottom" id="IlM-A0-Sxd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Uf2-8m-oar">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObP-bv-G6M">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rEu-2l-OTT" id="Zqo-j4-mU9"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ObP-bv-G6M" firstAttribute="top" secondItem="Uf2-8m-oar" secondAttribute="topMargin" id="Hhe-K9-E3P"/>
+                            <constraint firstAttribute="trailing" secondItem="ObP-bv-G6M" secondAttribute="trailing" id="Klh-IL-t0R"/>
+                            <constraint firstItem="ObP-bv-G6M" firstAttribute="leading" secondItem="Uf2-8m-oar" secondAttribute="leading" id="YkC-ib-pJs"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ObP-bv-G6M" secondAttribute="bottom" id="gaC-Gg-lbv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="ObP-bv-G6M" id="kJ9-6Y-ZkW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czE-ml-Zz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1806" y="1114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wbs-wg-OHA">

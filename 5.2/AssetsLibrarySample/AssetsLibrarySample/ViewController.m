@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.title = @"Assets Library";
     
     _assetArray = [[NSMutableArray alloc] init];
     
@@ -69,6 +70,9 @@
     ALAssetsGroup *group = [_assetArray objectAtIndex:indexPath.row];
     AssetViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AssetView"];
     controller.assetGroup = group;
+    // 次画面の戻るボタンの設定
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
+    self.navigationItem.backBarButtonItem = back;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
