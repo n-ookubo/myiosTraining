@@ -14,6 +14,7 @@
 		698DAA4C1B57474000BF85AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 698DAA4B1B57474000BF85AF /* Images.xcassets */; };
 		698DAA4F1B57474000BF85AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698DAA4D1B57474000BF85AF /* LaunchScreen.xib */; };
 		698DAA5B1B57474000BF85AF /* KeyboardNotificationSample_NoARCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 698DAA5A1B57474000BF85AF /* KeyboardNotificationSample_NoARCTests.m */; };
+		698DAA661B574B8600BF85AF /* HogeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 698DAA651B574B8600BF85AF /* HogeObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		698DAA541B57474000BF85AF /* KeyboardNotificationSample_NoARCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboardNotificationSample_NoARCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		698DAA591B57474000BF85AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		698DAA5A1B57474000BF85AF /* KeyboardNotificationSample_NoARCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardNotificationSample_NoARCTests.m; sourceTree = "<group>"; };
+		698DAA641B574B8600BF85AF /* HogeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HogeObject.h; sourceTree = "<group>"; };
+		698DAA651B574B8600BF85AF /* HogeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HogeObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				698DAA4B1B57474000BF85AF /* Images.xcassets */,
 				698DAA4D1B57474000BF85AF /* LaunchScreen.xib */,
 				698DAA3E1B57474000BF85AF /* Supporting Files */,
+				698DAA641B574B8600BF85AF /* HogeObject.h */,
+				698DAA651B574B8600BF85AF /* HogeObject.m */,
 			);
 			path = KeyboardNotificationSample_NoARC;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				698DAA471B57474000BF85AF /* ViewController.m in Sources */,
+				698DAA661B574B8600BF85AF /* HogeObject.m in Sources */,
 				698DAA441B57474000BF85AF /* AppDelegate.m in Sources */,
 				698DAA411B57474000BF85AF /* main.m in Sources */,
 			);
@@ -347,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = KeyboardNotificationSample_NoARC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = KeyboardNotificationSample_NoARC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
