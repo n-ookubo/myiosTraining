@@ -64,12 +64,12 @@
             [self myLog:@"\n## receiving response..."];
             [self myLog:@"  %@", [response description]];
             [self myLog:@"\n## receiving body..."];
-            [self myLog:@"  %@", [data description]];
+            //[self myLog:@"  %@", [data description]];
             [self myLog:@"\n%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
             
             NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
             NSDictionary *header = resp.allHeaderFields;
-            if (resp.statusCode == 200 && [(NSString *)[header objectForKey:@"Content-Type"] containsString:@"application/json"]){
+            if (resp.statusCode == 200 && [[header objectForKey:@"Content-Type"] containsString:@"application/json"]){
                 id obj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                 [self myLog:@"\n## parse Json..."];
                 [self myLog:@"  %@", obj];
