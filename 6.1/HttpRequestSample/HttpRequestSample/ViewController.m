@@ -49,33 +49,45 @@
     [self myLog:@"## sending request..."];
     [self myLog:@"  %@", [request description]];
     
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        [self receiveConnection:response data:data error:error];
+    }];
+    [task resume];
+    
+    /*
     NSOperationQueue *queue = [NSOperationQueue new];
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
-        if (connectionError) {
-            [mainQueue addOperationWithBlock:^{
-                [self myLog:@"\n## error!!!"];
-                [self myLog:@"  %@", [connectionError description]];
-                self.button.enabled = YES;
-            }];
-            return;
-        }
+        [self receiveConnection:response data:data error:connectionError];
+    }];
+    */
+}
+
+- (void) receiveConnection:(NSURLResponse *)response data:(NSData *)data error:(NSError *)connectionError {
+    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+    if (connectionError) {
         [mainQueue addOperationWithBlock:^{
-            [self myLog:@"\n## receiving response..."];
-            [self myLog:@"  %@", [response description]];
-            [self myLog:@"\n## receiving body..."];
-            //[self myLog:@"  %@", [data description]];
-            [self myLog:@"\n%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
-            
-            NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
-            NSDictionary *header = resp.allHeaderFields;
-            if (resp.statusCode == 200 && [[header objectForKey:@"Content-Type"] containsString:@"application/json"]){
-                id obj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                [self myLog:@"\n## parse Json..."];
-                [self myLog:@"  %@", obj];
-            }
+            [self myLog:@"\n## error!!!"];
+            [self myLog:@"  %@", [connectionError description]];
             self.button.enabled = YES;
         }];
+        return;
+    }
+    [mainQueue addOperationWithBlock:^{
+        [self myLog:@"\n## receiving response..."];
+        [self myLog:@"  %@", [response description]];
+        [self myLog:@"\n## receiving body..."];
+        //[self myLog:@"  %@", [data description]];
+        [self myLog:@"\n%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+        
+        NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
+        NSDictionary *header = resp.allHeaderFields;
+        if (resp.statusCode == 200 && [[header objectForKey:@"Content-Type"] containsString:@"application/json"]){
+            id obj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            [self myLog:@"\n## parse Json..."];
+            [self myLog:@"  %@", obj];
+        }
+        self.button.enabled = YES;
     }];
 }
 @end
