@@ -47,7 +47,7 @@
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    NSLog(@"willShowViewController:%@", viewController);
+    NSLog(@"willShowViewController");
     if ([viewController isKindOfClass:[ViewController class]]) {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:_countValue] forKey:@"CountValue"];
     }

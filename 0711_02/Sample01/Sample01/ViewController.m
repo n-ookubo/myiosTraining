@@ -37,7 +37,7 @@
 }
 - (IBAction)did10StartButtonTouchUp:(id)sender {
     CountViewController *controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"CountViewController"];
-    controller.countValue = 27;
+    controller.countValue = 10;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
