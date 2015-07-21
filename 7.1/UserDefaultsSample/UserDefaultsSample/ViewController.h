@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol ApplicationActivationDelegate <NSObject>
+- (void)applicationActivation;
 
-@interface ViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@end
+
+@interface ViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ApplicationActivationDelegate>
 
 
 @end

@@ -14,6 +14,7 @@
 		69890CF31B5DDA3900835A68 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69890CF21B5DDA3900835A68 /* Images.xcassets */; };
 		69890CF61B5DDA3900835A68 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69890CF41B5DDA3900835A68 /* LaunchScreen.xib */; };
 		69890D021B5DDA3900835A68 /* UserDefaultsSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69890D011B5DDA3900835A68 /* UserDefaultsSampleTests.m */; };
+		69890D0C1B5E034F00835A68 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 69890D0B1B5E034F00835A68 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		69890CFB1B5DDA3900835A68 /* UserDefaultsSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserDefaultsSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69890D001B5DDA3900835A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69890D011B5DDA3900835A68 /* UserDefaultsSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsSampleTests.m; sourceTree = "<group>"; };
+		69890D0B1B5E034F00835A68 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				69890CF21B5DDA3900835A68 /* Images.xcassets */,
 				69890CF41B5DDA3900835A68 /* LaunchScreen.xib */,
 				69890CE51B5DDA3900835A68 /* Supporting Files */,
+				69890D0B1B5E034F00835A68 /* Settings.bundle */,
 			);
 			path = UserDefaultsSample;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69890D0C1B5E034F00835A68 /* Settings.bundle in Resources */,
 				69890CF11B5DDA3900835A68 /* Main.storyboard in Resources */,
 				69890CF61B5DDA3900835A68 /* LaunchScreen.xib in Resources */,
 				69890CF31B5DDA3900835A68 /* Images.xcassets in Resources */,
