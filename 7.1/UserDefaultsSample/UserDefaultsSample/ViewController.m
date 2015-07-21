@@ -42,11 +42,21 @@
     return @"dictionary";
 }
 
++ (NSString *)getFileName
+{
+    return @"savedItems";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(action)];
+    self.navigationController.toolbarHidden = NO;
+    self.toolbarItems = @[space, actionButton, space];
     
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
@@ -192,5 +202,121 @@
     isNewValueValid = [self isValidStringForValue:field.text];
     
     _addItemAction.enabled = isNewKeyValid && isNewValueValid;
+}
+
+- (void)action
+{
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Menu" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *loadAction;
+    UIAlertAction *deleteAction;
+    [controller addAction:loadAction = [UIAlertAction actionWithTitle:@"Load from file" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self loadFromFile];
+    }]];
+    [controller addAction:[UIAlertAction actionWithTitle:@"Save to file" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self saveToFile];
+    }]];
+    [controller addAction:deleteAction = [UIAlertAction actionWithTitle:@"Delete file" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        [self deleteFile];
+    }]];
+    [controller addAction:[UIAlertAction actionWithTitle:@"Remove all items" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        [self removeAllItems];
+    }]];
+    [controller addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSArray *urls = [manager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask];
+    NSURL *baseUrl = urls[0];
+    NSURL *fileUrl = [baseUrl URLByAppendingPathComponent:[self.class getFileName]];
+    if (![manager fileExistsAtPath:fileUrl.path]) {
+        loadAction.enabled = NO;
+        deleteAction.enabled = NO;
+    }
+    [self.view.window.rootViewController presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)loadFromFile
+{
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSArray *urls = [manager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask];
+    NSURL *baseUrl = urls[0];
+    NSURL *fileUrl = [baseUrl URLByAppendingPathComponent:[self.class getFileName]];
+    NSString *reason = @"";
+    if ([manager fileExistsAtPath:fileUrl.path]) {
+        NSDictionary *dic = [NSDictionary dictionaryWithContentsOfURL:fileUrl];
+        if (dic) {
+            _dictionary = [NSMutableDictionary dictionaryWithDictionary:dic];
+            [self updateUserDefaults];
+            
+            UIAlertController *complete = [UIAlertController alertControllerWithTitle:@"Complete" message:@"loading from file succeeded" preferredStyle:UIAlertControllerStyleAlert];
+            [complete addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+            [self.view.window.rootViewController presentViewController:complete animated:YES completion:nil];
+            return;
+        }
+        reason = @"loading from file failed";
+    } else {
+        reason = @"file not found";
+    }
+    
+    UIAlertController *complete = [UIAlertController alertControllerWithTitle:@"Failed" message:reason preferredStyle:UIAlertControllerStyleAlert];
+    [complete addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [self.view.window.rootViewController presentViewController:complete animated:YES completion:nil];
+}
+
+- (void)saveToFile
+{
+    NSArray *urls = [[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask];
+    NSURL *baseUrl = urls[0];
+    NSURL *fileUrl = [baseUrl URLByAppendingPathComponent:[self.class getFileName]];
+    [_dictionary writeToURL:fileUrl atomically:YES];
+    
+    UIAlertController *complete = [UIAlertController alertControllerWithTitle:@"Complete" message:@"saving to file succeeded" preferredStyle:UIAlertControllerStyleAlert];
+    [complete addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [self.view.window.rootViewController presentViewController:complete animated:YES completion:nil];
+}
+
+- (void)deleteFile
+{
+    UIAlertController *confirm = [UIAlertController alertControllerWithTitle:@"Confirm" message:@"really remove the file?" preferredStyle:UIAlertControllerStyleAlert];
+    [confirm addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [confirm addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSFileManager *manager = [NSFileManager defaultManager];
+        NSArray *urls = [manager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask];
+        NSURL *baseUrl = urls[0];
+        NSURL *fileUrl = [baseUrl URLByAppendingPathComponent:[self.class getFileName]];
+        NSString *reason = @"";
+        if ([manager fileExistsAtPath:fileUrl.path]) {
+            NSError *error = nil;
+            [manager removeItemAtURL:fileUrl error:&error];
+            if (!error) {
+                UIAlertController *complete = [UIAlertController alertControllerWithTitle:@"Complete" message:@"removing file succeeded" preferredStyle:UIAlertControllerStyleAlert];
+                [complete addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+                [self.view.window.rootViewController presentViewController:complete animated:YES completion:nil];
+                return;
+            }
+            reason = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        } else {
+            reason = @"file not found";
+        }
+        
+        UIAlertController *complete = [UIAlertController alertControllerWithTitle:@"Failed" message:reason preferredStyle:UIAlertControllerStyleAlert];
+        [complete addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self.view.window.rootViewController presentViewController:complete animated:YES completion:nil];
+    }]];
+    [self.view.window.rootViewController presentViewController:confirm animated:YES completion:nil];
+}
+
+- (void)removeAllItems
+{
+    UIAlertController *confirm = [UIAlertController alertControllerWithTitle:@"Confirm" message:@"really remove all items?" preferredStyle:UIAlertControllerStyleAlert];
+    [confirm addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [confirm addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        _dictionary = [NSMutableDictionary dictionary];
+        [self updateUserDefaults];
+        
+        UIAlertController *complete = [UIAlertController alertControllerWithTitle:@"Complete" message:@"removing all items succeeded" preferredStyle:UIAlertControllerStyleAlert];
+        [complete addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self.view.window.rootViewController presentViewController:complete animated:YES completion:nil];
+    }]];
+    [self.view.window.rootViewController presentViewController:confirm animated:YES completion:nil];
 }
 @end
