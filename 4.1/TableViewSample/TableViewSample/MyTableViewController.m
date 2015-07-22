@@ -81,6 +81,8 @@
 
 - (void)didRefreshFinish
 {    int readCount = 10;
+    CGPoint pt = [self.tableView contentOffset];
+    
     rowCount += readCount;
     [self.tableView reloadData];
     /*
@@ -94,7 +96,13 @@
     */
     
     NSIndexPath *scrollIndex = [NSIndexPath indexPathForRow:readCount inSection:0];
-    [self.tableView scrollToRowAtIndexPath:scrollIndex atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    //[self.tableView scrollToRowAtIndexPath:scrollIndex atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:scrollIndex];
+    CGRect cellRect = cell.frame;
+    CGPoint destPt = CGPointMake(cellRect.origin.x + pt.x, cellRect.origin.y + pt.y);
+    [self.tableView setContentOffset:destPt];
+    
     [self.refreshControl endRefreshing];
 }
 
