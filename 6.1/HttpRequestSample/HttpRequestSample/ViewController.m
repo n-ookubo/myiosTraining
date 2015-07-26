@@ -52,9 +52,10 @@
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         [self receiveConnection:response data:data error:error];
+        [session invalidateAndCancel];
     }];
     [task resume];
-    
+    [task cancel];
     /*
     NSOperationQueue *queue = [NSOperationQueue new];
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
